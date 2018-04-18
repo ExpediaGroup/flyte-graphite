@@ -1,5 +1,7 @@
 ## Overview
 
+![Build Status](https://travis-ci.org/HotelsDotCom/flyte-graphite.svg?branch=master)
+
 This Graphite pack provides the ability to add events to graphite
 
 ### Build and Run
