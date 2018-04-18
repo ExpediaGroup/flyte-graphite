@@ -13,9 +13,6 @@ services:
 script:
   - docker build -t $IMAGE:$MAJOR_VERSION.$TRAVIS_BUILD_NUMBER .
 
-after_script:
-  - docker images
-
 before_deploy:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
 
