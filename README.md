@@ -12,14 +12,14 @@ To build and run from the command line:
 * Clone this repo
 * Run `dep ensure` (must have [dep](https://github.com/golang/dep) installed )
 * Run `go build`
-* Run `FLYTE_API_URL=http://localhost:8080/ GRAPHITE_HOST=http://localhost:8090`
-* Fill in this command with the relevant API url, bamboo host, bamboo user and bamboo password environment variables
+* Run `FLYTE_API=http://localhost:8080/ GRAPHITE_HOST=http://localhost:8090 FLYTE_LABELS="env=lab" ./flyte-graphite`
+* Fill in this command with the relevant API url environment variables
 
 
 ### Docker
 To build and run from docker
 * Run `docker build -t flyte-graphite .`
-* Run docker run -e FLYTE=http://localhost:8080/ -e GRAPHITE_HOST=http://localhost:8090`
+* Run `docker run -e FLYTE_API=http://localhost:8080/ -e GRAPHITE_HOST=http://localhost:8090 -e FLYTE_LABELS="env=lab"`
 * All of these environment variables need to be set
 
 
@@ -50,7 +50,7 @@ This command returns either a `AddEventsSuccess` or `AddEventsFailure`
  }
 ```
 
-### AddEventsFailre returns
+### AddEventsFailure returns
 ```
 "payload": {
     "tags":"tags",

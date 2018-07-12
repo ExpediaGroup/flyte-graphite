@@ -26,6 +26,7 @@ import (
 	"github.com/HotelsDotCom/flyte-graphite/service"
 	"github.com/HotelsDotCom/go-logger"
 	"time"
+	"github.com/HotelsDotCom/flyte-client/config"
 )
 
 func main() {
@@ -37,18 +38,18 @@ func main() {
 
 	commandService := service.NewCommandService(graphiteClient)
 
+	envVars := config.FromEnvironment()
 	packDef := flyte.PackDef{
 		Name:     "Graphite",
+		Labels:	  envVars.Labels,
 		HelpURL:  getUrl("http://github.com/HotelsDotCom/flyte-graphite/README.md"),
 		Commands: []flyte.Command{commandService.AddEventCommand()},
 	}
-
-	p := flyte.NewPack(packDef, client.NewClient(hostUrl(), 10*time.Second))
+	p := flyte.NewPack(packDef, client.NewClient(envVars.FlyteApiUrl, 10*time.Second))
 
 	p.Start()
 
 	select {}
-
 }
 
 func newGraphiteClient() (graphite.GraphiteClient, error) {
@@ -59,16 +60,6 @@ func newGraphiteClient() (graphite.GraphiteClient, error) {
 	}
 
 	return graphite.DefaultGraphiteClient(graphiteHost)
-
-}
-
-func hostUrl() *url.URL {
-	flyteHost := os.Getenv("FLYTE_API_URL")
-	if flyteHost == "" {
-		log.Fatal("FLYTE_API_URL environment variable is not set")
-	}
-
-	return getUrl(flyteHost)
 }
 
 func getUrl(rawUrl string) *url.URL {

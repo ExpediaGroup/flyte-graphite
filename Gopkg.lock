@@ -6,6 +6,7 @@
   name = "github.com/HotelsDotCom/flyte-client"
   packages = [
     "client",
+    "config",
     "flyte",
     "healthcheck"
   ]
@@ -20,6 +21,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "4b640019f41ba86d56019202db54087de43f921f5c9fe35f13ea6a17d9c0104c"
+  inputs-digest = "25a7724cd12be0bda091c505b2509eaa5aed0c3ae699c9efa61d256a447d54ca"
   solver-name = "gps-cdcl"
   solver-version = 1
