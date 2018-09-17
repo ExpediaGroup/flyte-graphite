@@ -45,7 +45,7 @@ func main() {
 		HelpURL:  getUrl("http://github.com/HotelsDotCom/flyte-graphite/README.md"),
 		Commands: []flyte.Command{commandService.AddEventCommand()},
 	}
-	p := flyte.NewPack(packDef, client.NewClient(envVars.FlyteApiUrl, 10*time.Second))
+	p := flyte.NewPack(packDef, client.NewInsecureClient(envVars.FlyteApiUrl, 10*time.Second))
 
 	p.Start()
 

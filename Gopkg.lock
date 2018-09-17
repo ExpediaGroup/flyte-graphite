@@ -10,13 +10,13 @@
     "flyte",
     "healthcheck"
   ]
-  revision = "e6fac3e89d97228747aab75ca7468a5388d32d0b"
+  revision = "fee8fba2729d7dd2cdd40e7183d2713389118a4c"
 
 [[projects]]
   branch = "master"
   name = "github.com/HotelsDotCom/go-logger"
   packages = ["."]
-  revision = "80a244c898b038d54a842d2197e2b2e9639b1565"
+  revision = "802095993e48d184191f20a6c29f1cbe55276e35"
 
 [solve-meta]
   analyzer-name = "dep"
