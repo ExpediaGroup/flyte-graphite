@@ -18,10 +18,10 @@ package service
 
 import (
 	"encoding/json"
-	events "flyte-graphite/event"
-	"flyte-graphite/graphite"
 	"fmt"
 	"github.com/HotelsDotCom/flyte-client/flyte"
+	events "github.com/HotelsDotCom/flyte-graphite/event"
+	"github.com/HotelsDotCom/flyte-graphite/graphite"
 	"github.com/HotelsDotCom/go-logger"
 )
 

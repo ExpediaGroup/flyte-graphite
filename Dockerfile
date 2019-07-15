@@ -11,6 +11,7 @@ WORKDIR /go/src/github.com/HotelsDotCom/$APP/
 
 COPY . ./
 
+RUN go get ./...
 RUN go test ./...
 RUN CGO_ENABLED=0 go build
 
