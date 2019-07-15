@@ -16,7 +16,7 @@ limitations under the License.
 
 package service
 
-import "github.com/HotelsDotCom/flyte-graphite/graphite"
+import "flyte-graphite/graphite"
 
 type CommandService struct {
 	graphiteClient graphite.GraphiteClient
