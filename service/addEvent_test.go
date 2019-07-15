@@ -17,9 +17,9 @@ limitations under the License.
 package service
 
 import (
-	"reflect"
 	"github.com/HotelsDotCom/flyte-graphite/event"
 	"github.com/HotelsDotCom/flyte-graphite/graphite"
+	"reflect"
 	"testing"
 )
 
@@ -31,7 +31,7 @@ func TestAddEventsHandler_Success(t *testing.T) {
 
 	got := service.AddEventHandler([]byte(`{"what":"what","tags":"tags","data":"data"}`))
 
-	if !reflect.DeepEqual("AddEventsSuccess",got.EventDef.Name) {
+	if !reflect.DeepEqual("AddEventsSuccess", got.EventDef.Name) {
 		t.Errorf("expected event AddEventsSuccess, got %s", got.EventDef.Name)
 	}
 }
@@ -44,7 +44,7 @@ func TestAddEventsHandler_Failure(t *testing.T) {
 
 	got := service.AddEventHandler([]byte(`{"what":""}`))
 
-	if !reflect.DeepEqual(got.EventDef.Name,"AddEventsFailure") {
+	if !reflect.DeepEqual(got.EventDef.Name, "AddEventsFailure") {
 		t.Errorf("expected event AddEventsFailure, got %s", got.EventDef.Name)
 	}
 }
@@ -74,7 +74,7 @@ func TestAddEvents_invalidInput(t *testing.T) {
 
 	got := service.AddEventHandler([]byte(`{"tags":"tags", "datadata"}`))
 
-	if reflect.DeepEqual(got.EventDef.Name,"AddEventsFailure") {
+	if reflect.DeepEqual(got.EventDef.Name, "AddEventsFailure") {
 		t.Logf("expected event:  AddEventsFailure, got %+v ", got.EventDef.Name)
 	} else {
 		t.Errorf("expected event: AddEventsFailure got %+v", got.EventDef.Name)
@@ -84,7 +84,7 @@ func TestAddEvents_invalidInput(t *testing.T) {
 func TestAddEvents_WhatMustNotBeNull(t *testing.T) {
 
 	mockClient := MockGraphiteClient{}
-	mockClient.addEvents = func(events graphite.GraphiteEvent ) error { return nil }
+	mockClient.addEvents = func(events graphite.GraphiteEvent) error { return nil }
 	service := NewCommandService(mockClient)
 
 	got := service.AddEventHandler([]byte(`{"what":"","tags":"tags","data":"some data"}`))

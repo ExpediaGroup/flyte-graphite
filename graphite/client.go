@@ -20,10 +20,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/HotelsDotCom/go-logger"
 	"net/http"
 	"net/url"
 	"time"
-	"github.com/HotelsDotCom/go-logger"
 )
 
 type GraphiteEvent struct {
@@ -39,7 +39,7 @@ type GraphiteClient interface {
 func NewGraphiteClient(httpClient *http.Client, baseUrl string) (GraphiteClient, error) {
 
 	if httpClient == nil {
-		httpClient = &http.Client{Timeout:time.Second*10}
+		httpClient = &http.Client{Timeout: time.Second * 10}
 	}
 
 	passedBaseUrl, err := url.Parse(baseUrl)
@@ -54,7 +54,7 @@ func NewGraphiteClient(httpClient *http.Client, baseUrl string) (GraphiteClient,
 }
 
 func DefaultGraphiteClient(baseUrl string) (GraphiteClient, error) {
-	httpClient := &http.Client{Timeout:10 * time.Second}
+	httpClient := &http.Client{Timeout: 10 * time.Second}
 	return NewGraphiteClient(httpClient, baseUrl)
 }
 

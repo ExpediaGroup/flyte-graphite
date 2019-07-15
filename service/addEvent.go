@@ -20,9 +20,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/HotelsDotCom/flyte-client/flyte"
+	events "github.com/HotelsDotCom/flyte-graphite/event"
 	"github.com/HotelsDotCom/flyte-graphite/graphite"
 	"github.com/HotelsDotCom/go-logger"
-	"github.com/HotelsDotCom/flyte-graphite/event"
 )
 
 func (c CommandService) AddEventCommand() flyte.Command {
@@ -52,7 +52,7 @@ func (c CommandService) AddEventHandler(input json.RawMessage) flyte.Event {
 	}
 
 	if err := c.graphiteClient.AddEvent(graphite.GraphiteEvent{What: handlerInput.What, Tags: handlerInput.Tags, Data: handlerInput.Data}); err != nil {
-		err := fmt.Errorf("Could not apply event: %v", err)
+		err := fmt.Errorf("could not apply event: %v", err)
 		logger.Error(err)
 		return events.NewAddEventsFailureEvent(fmt.Sprintf("Fail: %s", err), handlerInput.What, handlerInput.Data, handlerInput.Tags)
 	}
