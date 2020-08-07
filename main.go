@@ -17,16 +17,16 @@ limitations under the License.
 package main
 
 import (
+	"github.com/ExpediaGroup/flyte-graphite/graphite"
+	"github.com/ExpediaGroup/flyte-graphite/service"
+	"github.com/HotelsDotCom/flyte-client/client"
+	"github.com/HotelsDotCom/flyte-client/config"
+	"github.com/HotelsDotCom/flyte-client/flyte"
+	"github.com/HotelsDotCom/go-logger"
 	"log"
 	"net/url"
 	"os"
-	"github.com/HotelsDotCom/flyte-client/client"
-	"github.com/HotelsDotCom/flyte-client/flyte"
-	"github.com/HotelsDotCom/flyte-graphite/graphite"
-	"github.com/HotelsDotCom/flyte-graphite/service"
-	"github.com/HotelsDotCom/go-logger"
 	"time"
-	"github.com/HotelsDotCom/flyte-client/config"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func main() {
 	envVars := config.FromEnvironment()
 	packDef := flyte.PackDef{
 		Name:     "Graphite",
-		Labels:	  envVars.Labels,
+		Labels:   envVars.Labels,
 		HelpURL:  getUrl("http://github.com/HotelsDotCom/flyte-graphite/README.md"),
 		Commands: []flyte.Command{commandService.AddEventCommand()},
 	}

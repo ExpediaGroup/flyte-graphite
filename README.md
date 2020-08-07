@@ -1,6 +1,6 @@
 ## Overview
 
-![Build Status](https://travis-ci.org/HotelsDotCom/flyte-graphite.svg?branch=master)
+![Build Status](https://travis-ci.org/ExpediaGroup/flyte-graphite.svg?branch=master)
 [![Docker Stars](https://img.shields.io/docker/stars/hotelsdotcom/flyte-graphite.svg)](https://hub.docker.com/r/hotelsdotcom/flyte-graphite)
 [![Docker Pulls](https://img.shields.io/docker/pulls/hotelsdotcom/flyte-graphite.svg)](https://hub.docker.com/r/hotelsdotcom/flyte-graphite)
 

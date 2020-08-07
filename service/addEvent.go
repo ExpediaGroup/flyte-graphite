@@ -19,9 +19,9 @@ package service
 import (
 	"encoding/json"
 	"fmt"
+	events "github.com/ExpediaGroup/flyte-graphite/event"
+	"github.com/ExpediaGroup/flyte-graphite/graphite"
 	"github.com/HotelsDotCom/flyte-client/flyte"
-	events "github.com/HotelsDotCom/flyte-graphite/event"
-	"github.com/HotelsDotCom/flyte-graphite/graphite"
 	"github.com/HotelsDotCom/go-logger"
 )
 

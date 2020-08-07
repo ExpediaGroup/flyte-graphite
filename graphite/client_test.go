@@ -36,9 +36,9 @@ func TestGraphiteClient_AddEvent(t *testing.T) {
 	}
 
 	err = client.AddEvent(GraphiteEvent{
-		What:"what",
-		Data:"data",
-		Tags:"tags",
+		What: "what",
+		Data: "data",
+		Tags: "tags",
 	})
 
 	if err != nil {
