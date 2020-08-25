@@ -17,8 +17,8 @@ limitations under the License.
 package service
 
 import (
-	"github.com/HotelsDotCom/flyte-graphite/event"
-	"github.com/HotelsDotCom/flyte-graphite/graphite"
+	"github.com/ExpediaGroup/flyte-graphite/event"
+	"github.com/ExpediaGroup/flyte-graphite/graphite"
 	"reflect"
 	"testing"
 )
